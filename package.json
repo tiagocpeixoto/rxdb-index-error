@@ -1,0 +1,55 @@
+{
+  "name": "rxdb-index-error",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint \"src/**\"",
+    "prettier:write": "yarn prettier --write src/**",
+    "prettier:check": "yarn prettier --check src/**",
+    "clean": "yarn build --clean",
+    "build": "tsc --build",
+    "build:force": "yarn build --force",
+    "validate": "yarn lint && yarn prettier:check && yarn test",
+    "test": "yarn build:force && jest --detectOpenHandles --silent",
+    "test:clear": "jest --clearCache"
+  },
+  "dependencies": {
+    "pouchdb-adapter-idb": "~7.3.0",
+    "pouchdb-adapter-memory": "^7.3.0",
+    "rxdb": "~12.4.3",
+    "rxjs": "~7.5.5"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.1.0",
+    "@types/jest": "27.5.1",
+    "@typescript-eslint/eslint-plugin": "~5.26.0",
+    "@typescript-eslint/parser": "~5.26.0",
+    "dotenv-safe": "~8.2.0",
+    "eslint": "~8.16.0",
+    "eslint-config-prettier": "~8.5.0",
+    "eslint-config-standard": "~17.0.0",
+    "eslint-plugin-etc": "~2.0.2",
+    "eslint-plugin-import": "~2.26.0",
+    "eslint-plugin-jest": "~26.3.0",
+    "eslint-plugin-jest-formatting": "~3.1.0",
+    "eslint-plugin-n": "~15.2.0",
+    "eslint-plugin-node": "~11.1.0",
+    "eslint-plugin-prettier": "~4.0.0",
+    "eslint-plugin-promise": "~6.0.0",
+    "jest": "^28.1.0",
+    "jest-mock": "~28.1.0",
+    "jest-mock-extended": "~2.0.6",
+    "jest-runner": "~28.1.0",
+    "jest-runner-groups": "~2.2.0",
+    "node-notifier": "~10.0.1",
+    "prettier": "~2.6.2",
+    "prettier-eslint": "~15.0.0",
+    "ts-jest": "~28.0.3",
+    "ts-loader": "~9.3.0",
+    "typescript": "~4.7.2"
+  },
+  "resolutions": {
+    "**/typescript": "4.7.2",
+    "**/jest-mock": "28.1.0"
+  }
+}

@@ -1,0 +1,62 @@
+// reference: https://www.typescriptlang.org/tsconfig
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "TSConfig",
+  "compilerOptions": {
+    /* child packages configuration must have these attributes */
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist",
+
+    /* Basic Options */
+    "target": "ES2020",
+    //    "target": "ES2020",
+    "lib": ["ES2020"],
+    //    "lib": ["ES2020"],
+    //    "composite": true,
+    "removeComments": true,
+
+    /* Module Options */
+    "module": "commonjs",
+    //    "module": "ES2020",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    /* Check Options */
+    "strict": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "skipLibCheck": true,
+    //    "noImplicitUseStrict": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    //    "noUnusedLocals": true,
+    //    "noUnusedParameters": true,
+
+    /* Javascript options */
+    "allowJs": true,
+    "checkJs": false, // FIXME: https://github.com/microsoft/TypeScript/issues/38552
+    //    "noEmit": true,
+    //    "noEmitHelpers": true,
+
+    /* Typescript options */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    /* Advanced Options */
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
+    //    "importHelpers": true
+  },
+  /* child packages configuration must have these attributes */
+  "include": ["src/**/*"],
+//  "exclude": [
+//    "**/(__tests__|__mocks__)/**/*.[jt]s?(x)",
+//    "**/?(*.)+(spec|int-spec|test|unit|it|e2e|sls).[tj]s?(x)"
+//  ]
+}
