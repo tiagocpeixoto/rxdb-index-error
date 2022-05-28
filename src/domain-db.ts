@@ -40,7 +40,7 @@ export class DomainRepositoryRxDB extends RxDBRepository<{
       const query: MangoQuery<Domain> = {
         selector: { $and: [{ userId }] },
         sort: [],
-        // index: ["createdAt"],
+        // index: "createdAt",
       };
 
       const queryAnd = query?.selector?.$and;
@@ -50,9 +50,11 @@ export class DomainRepositoryRxDB extends RxDBRepository<{
 
       if (sortByUpdate) {
         queryAnd.push({ updatedAt: { $gt: null } });
+        queryAnd.push({ "_id": { $gt: null } });
         querySort?.push({ updatedAt: sortDesc ? "desc" : "asc" });
       } else {
         queryAnd.push({ createdAt: { $gt: null } });
+        queryAnd.push({ "_id": { $gt: null } });
         querySort?.push({ createdAt: sortDesc ? "desc" : "asc" });
       }
 

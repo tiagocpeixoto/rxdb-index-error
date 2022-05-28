@@ -7,17 +7,26 @@ import {
   RxDatabase,
   RxDumpCollectionAny,
 } from "rxdb";
-import { addPouchPlugin, getRxStoragePouch } from "rxdb/plugins/pouchdb";
+import { addPouchPlugin, getRxStoragePouch, PouchDB } from "rxdb/plugins/pouchdb";
 import { isDev, isJestTest, logDebug, logError } from "./util";
 
 if (isJestTest()) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   addPouchPlugin(require("pouchdb-adapter-memory"));
-  logDebug("Added Memory PouchDB adapter");
+  addPouchPlugin(require("pouchdb-debug"));
+
+  // debug all
+  // PouchDB.debug.enable('*');
+
+  // only debug queries
+  PouchDB.debug.enable('pouchdb:find');
+
+  logDebug("Added RxDB test plugins");
 } else {
   // configure RxDB PouchDB IndexedDB adapter for web
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   addPouchPlugin(require("pouchdb-adapter-idb"));
+
   logDebug("Added IndexedDB PouchDB adapter");
 }
 
